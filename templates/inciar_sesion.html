@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio De Sesion </title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <nav id="header" class="barra">
@@ -46,32 +47,52 @@
         </div>
     </nav>
 
+    <img src="{{ url_for('static', filename='img/ANGEL SIN FONDO.png') }}" class="angel1">
+    <!-- Imagen angel 2 --> 
+    <img src="{{ url_for('static', filename='img/ANGEL SIN FONDO.png') }}" class="angel2">
+
     <div class="container mx-auto max-w-lg p-10 rounded-lg drop-shadow-2xl  my-20 bg-[#050016]">
         <div class="text-center py-5 mb-5">
             <h1 class="text-2xl text-white font-bold">Bienvenido a Saudade</h1>
         </div>
 
-        <form action="" method="post" class="flex  flex-col">
+        <form action="" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
             <div class="mb-3">
-                <label for="email" class="block font-bold text-mg text-white">Correo Electronico</label>
-                <input type="email" id="email" name="email" class="form-input w-full rounded-md border border-gray-300 focus:border-blue-500 py-1">
+                <label for="email" class="block font-bold text-mg text-white">Correo Electrónico</label>
+                <input type="email" id="email" name="email" class="form-input w-full rounded-md border border-gray-300 focus:border-blue-500 py-1" required>
             </div>
-
+        
             <div class="mb-3">
                 <label for="password" class="block font-bold text-mg text-white">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-input w-full rounded-md border border-gray-300 py-1 focus:border-blue-500">
+                <input type="password" id="password" name="password" class="form-input w-full rounded-md border border-gray-300 py-1 focus:border-blue-500" required>
             </div>
-
+        
             <div class="flex items-center justify-between mb-5">
                 <a href="#" class="text-sm text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
             </div>
-
-            <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Inicio de sesion</button>
-
-            <div class="text-center text-white  mt-5">
-                <p>¿Aún no estás en Saudade? <a href="{{ url_for('registro') }}" class="text-blue-500 hover:underline">Registrate</a></p>
+        
+            <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Inicio de sesión</button>
+        
+            <div class="text-center text-white mt-5">
+                <p>¿Aún no estás en Saudade? <a href="{{ url_for('registro') }}" class="text-blue-500 hover:underline">Regístrate</a></p>
             </div>
         </form>
+        
+        <script>
+            function validarFormulario() {
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+        
+                // Validación adicional
+                if (email === "" || password === "") {
+                    alert("Por favor completa todos los campos.");
+                    return false;
+                }
+        
+                return true;
+            }
+        </script>
+        
 
         <div class="flex items-center bg-white justify-center rounded-lg py-2 mt-5">
             <a href="#" class="inline-block text-gray-500 hover:text-gray-700">
