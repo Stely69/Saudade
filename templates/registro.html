@@ -57,34 +57,59 @@
         <h1 class="text-2xl font-bold">Bienvenido a Saudade</h1>
     </div>
 
-    <form action="" method="post" class="flex flex-col">
+    <form action="" method="post" class="flex flex-col" onsubmit="return validarFormulario()">
         <div class="mb-3">
             <label for="nombre" class="block font-bold text-mg py-1 text-white">Nombre Completo</label>
-            <input type="text" id="nombre" name="nombre" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500">
+            <input type="text" id="nombre" name="nombre" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
         </div>
-
+    
         <div class="mb-3">
-            <label for="email" class="block font-bold text-mg py-1 text-white">Correo Electronico</label>
-            <input type="email" id="email" name="email" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500">
+            <label for="email" class="block font-bold text-mg py-1 text-white">Correo Electrónico</label>
+            <input type="email" id="email" name="email" class="form-input w-full rounded-md border py-1 border-gray-300 focus:border-blue-500" required>
         </div>
-
+    
         <div class="mb-3">
-            <label for="password" class="block font-bold text-mg py-1  text-white">Contraseña</label>
-            <input type="password" id="password" name="password" class="form-input w-full rounded-md py-1 border border-gray-300 focus:border-blue-500">
+            <label for="password" class="block font-bold text-mg py-1 text-white">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-input w-full rounded-md py-1 border border-gray-300 focus:border-blue-500" required minlength="8">
         </div>
-
+    
         <div class="mb-3">
             <label for="repetirPassword" class="block font-bold text-mg py-1 text-white">Repetir Contraseña</label>
-            <input type="password" id="repetirPassword" name="repetirPassword" class="form-input w-full py-1 rounded-md border border-gray-300 focus:border-blue-500">
+            <input type="password" id="repetirPassword" name="repetirPassword" class="form-input w-full py-1 rounded-md border border-gray-300 focus:border-blue-500" required minlength="8">
         </div>
-
+    
         <div class="flex items-center py-1 justify-between mb-5">
             <a href="{{ url_for('inciar_sesion') }}" class="text-sm text-blue-500 hover:underline">¿Ya tienes una cuenta? Inicia sesión</a>
         </div>
-
+    
         <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600">Registrarse</button>
     </form>
 </div>
+
+<script>
+    function validarFormulario() {
+        var nombre = document.getElementById("nombre").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var repetirPassword = document.getElementById("repetirPassword").value;
+
+        // Validación adicional
+        if (nombre === "" || email === "" || password === "" || repetirPassword === "") {
+            alert("Por favor completa todos los campos.");
+            return false;
+        }
+
+        // Validación de contraseñas iguales
+        if (password !== repetirPassword) {
+            alert("Las contraseñas no coinciden.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
 </body>
 <footer class="relative bg-[#0E0047] pt-8 pb-6">
     <div class="container mx-auto px-4">
