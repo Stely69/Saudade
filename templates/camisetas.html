@@ -1,36 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Enlace al archivo CSS de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <title>Registro</title>
-    <!-- Enlace al archivo JavaScript de jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
-    <!-- Enlace al archivo CSS personalizado -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Catálogo de Camisas</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- component -->
-    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-    <link rel="stylesheet"
-        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-
-
-       
-        
 </head>
-
-<body class=""></body>
-
-
-
-        
-<nav id="header" class="w-full z-30 top-10 py-1 bg-[#0E0047] shadow-lg border-b border-blue-400">
-    <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
+<body>
+  <nav id="header" class="barra">
+    <div class="w-full z-20 flex items-center justify-between  px-6 py-4  backdrop-blur-lg">
         <label for="menu-toggle" class="cursor-pointer md:hidden block">
             <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                 viewBox="0 0 20 20">
@@ -40,473 +18,210 @@
         </label>
         <input class="hidden" type="checkbox" id="menu-toggle">
 
-
-        <nav class="busqueda">
-          
-          <form class="form-inline">
-              <div class="input-group">
-                  <input class="form-control mr-sm-2 rounded-2 mx-2" type="search" placeholder="Buscar" aria-label="Buscar">
-                  <div class="input-group-append">
-                    <button type="button" class="boton">Buscar</button>
-
-                  </div>
-              </div>
-          </form>
-      </nav>
-      
-
-
-
-
-
-
-
-
-
-       
-       
-
-        <!-- Menú de navegación a la izquierda -->
-        <div class="order-1 md:order-3 flex flex-wrap items-center md:items-center md:w-auto w-full" id="menu">
+        <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
             <nav>
-                <ul class="md:flex items-center justify-between text-base text-white pt-4 md:pt-0">
-                    <li>
-                        <a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="{{ url_for('catalogo') }}">Inicio</a>
-                    </li>
-                    <li>
-                        <a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href=""></a>
-                    </li>
+                <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
+                    <a class="inline-block no-underline hover:text-purple  font-medium text-lg py-2 px-4 lg:-ml-2"
+                        href="#"></a>
+                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
+                            href="{{ url_for('catalogo') }}">Inicio</a></li>
+                    <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
+                            href="{{ url_for('acercade') }}">Quiénes Somos</a></li>
+
+                    <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2"
+                            href="{{ url_for('camisetas') }}">Catalogo</a></li>
+
                 </ul>
             </nav>
         </div>
 
-        <!-- Botones de Iniciar sesión y Registrarse a la derecha -->
-        <div class="order-3 md:order-2 flex items-center justify-end mr-0 md:mr-4" id="nav-content">
-            <div class="auth flex items-center">
+        <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+            <div class="auth flex items-center w-full md:w-full">
                 
+                <a class="  inline-block  font-medium no-underline text-black text-lg  hover:text-[#6F00FF] px-4"href="{{ url_for('inciar_sesion') }}"> Iniciar sesion </a>
+                <a class="  inline-block  font-medium no-underline text-black text-lg hover:text-[#6F00FF]"href="{{ url_for('registro') }}" > Registrarse</a>
+                                      
             </div>
         </div>
     </div>
-</nav>
-
-<br>
-
-<style>
-  .sidebar {
-      width: 200px;
-      position: absolute;
-      margin-top: 800px;
-      margin-right: 200px;
-      border-radius: 30px;
-      padding: 5px;
-      }
-
-  .sidebar h3 {
-      margin: 0;
-      padding: 10px;
-      background-color: #f4f4f4;
-      text-align: center;
-  }
-
-  .sidebar button {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ddd;
-      background-color: #fff;
-      cursor: pointer;
-      text-align: left;
-  }
-
-  .sidebar button:hover {
-      background-color: #e0e0e0;
-  }
-
-  .sizes, .tallas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      padding: 10px;
-      border-radius: 30px;
-  }
-
-  .sizes button, .tallas button {
-      width: 40px;
-      text-align: center;
-  }
-
-  .sizes button:last-child {
-      width: 50px;
-  }
-
-</style>
-
-<div class="sidebar">
-  <h3>Categorías</h3> <br>
-  <button>Camisetas/Tops</button>
-  <button>Accesorios/Gorras</button>
-  <button>Buzos/Chaquetas</button>
-  <button>Descuentos</button>
-  <button>Inferiores</button>
-  <br><br>
-
-  <h3>Talla</h3>
-  <div class="sizes">
-      <button>28</button>
-      <button>30</button>
-      <button>32</button>
-      <button>34</button>
-      <button>36</button>
-      <button>S</button>
-      <button>M</button>
-      <button>L</button>
-      <button>XL</button>
-      <button>XXL</button>
-  </div>
-  <br>
-
-  <h3>Talla</h3>
-  <div class="tallas">
-      <button>L</button>
-      <button>M</button>
-      <button>S</button>
-      <button>XL</button>
-  </div>
-</div>
-
-
-
-
-
-
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            border-radius: 0px;
-        }
-
-        .carousel {
-          justify-content: center;
-          width: 1000px;
-          height: 600px;
-          margin-left: 400px;
-          border-radius: 40px;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-    </style>
-
-    <div class="carousel">
-        <div class="slide active"><img src="../static/img/1.png" alt="Slide 1"></div>
-        <div class="slide"><img src="../static/img/2.jpg" alt="Slide 2"></div>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let currentIndex = 0;
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-
-            function showNextSlide() {
-                slides[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % totalSlides;
-                slides[currentIndex].classList.add('active');
-            }
-
-            setInterval(showNextSlide, 3500); // Change slide every 2 seconds
-        });
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="bg-white">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <h2 class="sr-only">Products</h2>
-  
-      <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Earthen Bottle</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$48</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Nomad Tumbler</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$89</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Machined Mechanical Pencil</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-        </a>
-  
-        <!-- More products... -->
-      </div>
-    </div>
-  </div>
-
-
-<div class="bg-white">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <h2 class="sr-only">Products</h2>
-  
-      <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Earthen Bottle</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$48</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Nomad Tumbler</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-        </a>
-        <img class="angel1" src="../static/img/ANGEL SIN FONDO.png" alt="">
-
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$89</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Machined Mechanical Pencil</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-        </a>
-  
-        <!-- More products... -->
-      </div>
-    </div>
-  </div>
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-<div class="bg-white">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <h2 class="sr-only">Products</h2>
-  
-      <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Earthen Bottle</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$48</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Olive drab green insulated bottle with flared screw lid and flat top." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Nomad Tumbler</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-        </a>
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Person using a pen to cross a task off a productivity paper card." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$89</p>
-        </a>
-        <img class="angel2" src="../static/img/ANGEL SIN FONDO.png" alt="">
-        <a href="{{ url_for('compra') }}" class="group">
-          <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-            <img src="../static/img/CAMISETA.png" alt="Hand holding black machined steel mechanical pencil with brass tip and top." class="h-full w-full object-cover object-center group-hover:opacity-75">
-          </div>
-          <h3 class="mt-4 text-sm text-gray-700">Machined Mechanical Pencil</h3>
-          <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-        </a>
-  
-        <!-- More products... -->
-      </div>
-    </div>
-  </div>
+  </nav>
     
+  <div class="container mx-auto max-w-7xl p-10">
+        <div class="flex flex-col items-center mb-5">
+            <h1 class="text-3xl font-bold">Catálogo de Camisas</h1>
+            <p class="text-gray-500">Encuentra la camisa perfecta para ti.</p>
+        </div>
 
-  <footer class="relative bg-[#0E0047] pt-8 pb-6">
-    <div class="container mx-auto px-4">
-        <div class="flex flex-wrap text-left lg:text-left">
-            <div class="w-full lg:w-6/12 px-4">
-                <h4 class="text-3xl fonat-semibold text-white">Saudade</h4>
-                <h5 class="text-lg mt-0 mb-2 text-white">
-                    Tienda Virtual
-                </h5>
-                <div class="mt-6 lg:mb-0 mb-6">
-                    <button
-                        class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                        type="button">
-                        <i class="fab fa-twitter"></i></button><button
-                        class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                        type="button">
-                        <i class="fab fa-facebook-square"></i></button><button
-                        class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                        type="button">
-                        <i class="fab fa-dribbble"></i></button><button
-                        class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                        type="button">
-                        <i class="fab fa-github"></i>
-                    </button>
-                </div>
+        <div class="flex flex-col md:flex-row justify-between mb-5">
+            <div class="w-full md:w-1/3 mb-3">
+                <label for="filtro-precio" class="block text-gray-700">Precio</label>
+                <select id="filtro-precio" class="form-select w-full rounded-md border border-gray-300 focus:border-blue-500">
+                    <option value="">Cualquier precio</option>
+                    <option value="menos-50000">Menos de $50.000</option>
+                    <option value="50000-100000">$50.000 - $100.000</option>
+                    <option value="100000-150000">$100.000 - $150.000</option>
+                    </select>
             </div>
-            <div class="w-full lg:w-6/12 px-4">
-                <div class="flex flex-wrap items-top mb-6">
-                    <div class="w-full lg:w-4/12 px-4 ml-auto">
-                        <span class="block uppercase text-white text-sm font-semibold mb-2">Acerca de Nosotros</span>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Contacto</a>
-                            </li>
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Blog</a>
-                            </li>
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Villeta Cundinamarca </a>
-                            </li>
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Free
-                                    Products</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="w-full lg:w-4/12 px-4">
-                        <span class="block uppercase text-white text-sm font-semibold mb-2">Enlaces Rapidos</span>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Mi cuenta                                    License</a>
-                            </li>
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Home</a>
-                            </li>
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Terminos y condiciones</a>
-                            </li>
-                            <li>
-                                <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
-                                    href="#">Politicas de privacidad </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+            <div class="w-full md:w-1/3 mb-3">
+                <label for="filtro-color" class="block text-gray-700">Color</label>
+                <select id="filtro-color" class="form-select w-full rounded-md border border-gray-300 focus:border-blue-500">
+                    <option value="">Cualquier color</option>
+                    <option value="blanco">Blanco</option>
+                    <option value="negro">Negro</option>
+                    <option value="gris">Gris</option>
+                    </select>
             </div>
         </div>
-        
-        <hr class="my-6 border-blueGray-300">
-        <div class="flex flex-wrap items-center md:justify-between justify-center">
-            <div class="w-full md:w-4/12 px-4 mx-auto text-center">
-                <div class="text-sm text-white font-semibold py-1">
-                    Copyright © <span id="get-current-year">2021</span><a
-                        href="#"
-                        class="text-white hover:text-gray-500" target="_blank"> Saudade
-                        <a href="https://www.creative-tim.com?ref=njs-profile"
-                            class="text-blueGray-500 hover:text-blueGray-800"></a>.
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="bg-[#050016] rounded-lg shadow-md hover:shadow-lg">
+                <img src="../static/img/camiseta2.png" alt="Camisa Nike" class="rounded-t-lg">
+                <div class="p-4 ">
+                    <h3 class="text-white text-center font-medium">Camisa</h3>
+                    <p class="text-white">$45.000</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <a href="#" class="text-blue-500 hover:underline">Ver detalles</a>
+                    </div>
                 </div>
             </div>
+            <div class="bg-[#050016] rounded-lg shadow-md hover:shadow-lg">
+                <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
+                <div class="p-4">
+                    <h3 class="text-white text-center font-medium">Camisa </h3>
+                    <p class="text-white">$60.000</p>
+                    <div class="flex items-center justify-between mt-4">
+                        <a href="#" class="text-blue-500 hover:underline">Ver detalles</a>
+                   </div>
+                </div>
+            </div>
+            <div class="bg-[#050016]  rounded-lg shadow-md hover:shadow-lg">
+              <img src="../static/img/camiseta3.png" alt="Camisa Adidas" class="rounded-t-lg">
+              <div class="p-4">
+                  <h3 class="text-white text-center font-medium">Camisa </h3>
+                  <p class="text-white">$60.000</p>
+                  <div class="flex items-center justify-between mt-4">
+                      <a href="#" class="text-blue-500 hover:underline">Ver detalles</a>
+                 </div>
+              </div>
+          </div>
+          <div class="bg-[#050016] rounded-lg shadow-md hover:shadow-lg">
+            <img src="../static/img/camiseta2.png" alt="Camisa Adidas" class="rounded-t-lg">
+            <div class="p-4">
+                <h3 class="text-white text-center font-medium">Camisa </h3>
+                <p class="text-white">$60.000</p>
+                <div class="flex items-center justify-between mt-4">
+                    <a href="#" class="text-blue-500 hover:underline">Ver detalles</a>
+               </div>
+            </div>
+        </div>
+        <div class="bg-[#050016] rounded-lg shadow-md hover:shadow-lg">
+          <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
+          <div class="p-4">
+              <h3 class="text-white text-center font-medium">Camisa</h3>
+              <p class="text-white">$60.000</p>
+              <div class="flex items-center justify-between mt-4">
+                  <a href="#" class="text-blue-500 hover:underline">Ver detalles</a>
+             </div>
+          </div>
+      </div>
+      <div class="bg-[#050016] rounded-lg shadow-md hover:shadow-lg">
+        <img src="../static/img/camiseta1.png" alt="Camisa Adidas" class="rounded-t-lg">
+        <div class="p-4">
+            <h3 class="text-white text-center font-medium">Camisa</h3>
+            <p class="text-white">$60.000</p>
+            <div class="flex items-center justify-between mt-4">
+                <a href="#" class="text-blue-500 hover:underline">Ver detalles</a>
+           </div>
         </div>
     </div>
-</footer>
+</body>
+<!--<footer class="relative bg-[#0E0047] pt-8 pb-6">
+  <div class="container mx-auto px-4">
+      <div class="flex flex-wrap text-left lg:text-left">
+          <div class="w-full lg:w-6/12 px-4">
+              <h4 class="text-3xl fonat-semibold text-white">Saudade</h4>
+              <h5 class="text-lg mt-0 mb-2 text-white">
+                  Tienda Virtual
+              </h5>
+              <div class="mt-6 lg:mb-0 mb-6">
+                  <button
+                      class="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                      type="button">
+                      <i class="fab fa-twitter"></i></button><button
+                      class="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                      type="button">
+                      <i class="fab fa-facebook-square"></i></button><button
+                      class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                      type="button">
+                      <i class="fab fa-dribbble"></i></button><button
+                      class="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
+                      type="button">
+                      <i class="fab fa-github"></i>
+                  </button>
+              </div>
+          </div>
+          <div class="w-full lg:w-6/12 px-4">
+              <div class="flex flex-wrap items-top mb-6">
+                  <div class="w-full lg:w-4/12 px-4 ml-auto">
+                      <span class="block uppercase text-white text-sm font-semibold mb-2">Acerca de Nosotros</span>
+                      <ul class="list-unstyled">
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Contacto</a>
+                          </li>
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Blog</a>
+                          </li>
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Villeta Cundinamarca </a>
+                          </li>
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Free
+                                  Products</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="w-full lg:w-4/12 px-4">
+                      <span class="block uppercase text-white text-sm font-semibold mb-2">Enlaces Rapidos</span>
+                      <ul class="list-unstyled">
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Mi cuenta License</a>
+                          </li>
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Home</a>
+                          </li>
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Terminos y condiciones</a>
+                          </li>
+                          <li>
+                              <a class="text-white hover:text-blueGray-500 font-semibold block pb-2 text-sm"
+                                  href="#">Politicas de privacidad </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <hr class="my-6 border-blueGray-300">
+      <div class="flex flex-wrap items-center md:justify-between justify-center">
+          <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+              <div class="text-sm text-white font-semibold py-1">
+                  Copyright © <span id="get-current-year">2021</span><a href="#"
+                      class="text-white hover:text-gray-500" target="_blank"> Saudade
+                      <a href="https://www.creative-tim.com?ref=njs-profile"
+                          class="text-blueGray-500 hover:text-blueGray-800"></a>.
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>-->
+
+</html>

@@ -38,18 +38,5 @@ def compra():
 def camisetas():
     return render_template('camisetas.html')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
