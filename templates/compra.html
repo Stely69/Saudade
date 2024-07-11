@@ -1,76 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Header Invertido</title>
-            <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-            <script src="https://cdn.tailwindcss.com"></script>
-            <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
-            <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Producto</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+ <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
-        <body>
-            <nav id="header" class="w-full z-30 top-10 py-1 bg-[#0E0047] shadow-lg border-b border-blue-400">
-                <div class="w-full flex items-center justify-between mt-0 px-6 py-2">
-                    <label for="menu-toggle" class="cursor-pointer md:hidden block">
-                        <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-                            <title>menu</title>
-                            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                        </svg>
-                    </label>
-                    <input class="hidden" type="checkbox" id="menu-toggle">
-        
-                    <!-- Menú de navegación a la izquierda -->
-                    <div class="order-1 md:order-1 flex flex-wrap items-center md:items-center md:w-auto w-full" id="menu">
-                        <nav>
-                            <ul class="md:flex items-center justify-between text-base text-white pt-4 md:pt-0">
-                                <li>
-                                    <a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href="{{ url_for('catalogo') }}">Inicio</a>
-                                </li>
-                                <li>
-                                    <a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2" href=""></a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-        
-                  
+<body>
+    <nav id="header" class="barra">
+        <div class="w-full z-20 flex items-center justify-between  px-6 py-4  backdrop-blur-lg">
+            <label for="menu-toggle" class="cursor-pointer md:hidden block">
+                <svg class="fill-current text-blue-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    viewBox="0 0 20 20">
+                    <title>menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </label>
+            <input class="hidden" type="checkbox" id="menu-toggle">
     
+            <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
+                <nav>
+                    <ul class="md:flex items-center justify-between text-base text-black pt-4 md:pt-0">
+                        <a class="inline-block no-underline hover:text-purple  font-medium text-lg py-2 px-4 lg:-ml-2"
+                            href="#"></a>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="{{ url_for('catalogo') }}">Inicio</a></li>
+                        <li><a class="inline-block no-underline hover:text-[#6F00FF] font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="{{ url_for('acercade') }}">Quiénes Somos</a></li>
     
+                        <li><a class="inline-block no-underline hover:text-[#9333ea] font-medium text-lg py-2 px-4 lg:-ml-2"
+                                href="{{ url_for('camisetas') }}">Catalogo</a></li>
     
+                    </ul>
+                </nav>
+            </div>
     
-    
-    
-           
-           
-    
-            <!-- Botones de Iniciar sesión y Registrarse a la derecha -->
-            <div class="order-3 md:order-2 flex items-center justify-end mr-0 md:mr-4" id="nav-content">
-                <div class="auth flex items-center">
-
-
-                  <div class="header-content">
-                    <h1>Tienda Online</h1>
+            <div class="order-2 md:order-3 flex flex-wrap items-center justify-end mr-0 md:mr-4" id="nav-content">
+                <div class="auth flex items-center w-full md:w-full">
+                    
                     <button id="cart-icon" class="cart-icon">
                         🛒
                     </button>
-                </div>
-                    
+                                          
                 </div>
             </div>
         </div>
-    </nav><br>
-
-
-
-
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Producto</title>
-
-
-
-
+    </nav>
+    <br>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -140,12 +119,6 @@
                 height: auto;
             }
         </style>
-    </head>
-    <body>
-
-
-
-
 
         <div class="container">
             <div class="images">
@@ -189,9 +162,6 @@
             <button id="pagar-button">PAGAR AHORA</button>
         </div>
     </div>
-
-
-
     <style>
 
 
@@ -397,13 +367,6 @@
 
         </div>
 
-        
-
-
-
-
-        
-
         <section class="related-products">
             <h2 id="rlt">PRODUCTOS RELACIONADOS</h2><br><br>
           
@@ -503,21 +466,5 @@
 
  </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 </body>
-
-
 </html>
